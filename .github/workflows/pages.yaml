@@ -1,3 +1,5 @@
+name: CI/CD
+
 # Triggers
 on:
   push:
@@ -48,3 +50,5 @@ jobs:
         with:
           github_token: ${{ secrets.GH_ACCESS_TOKEN }}
           publish_dir: ./build
+      - name: Publish to environment
+        run: npm run deploy
