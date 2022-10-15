@@ -5,7 +5,7 @@ import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { Link } from 'react-scroll';
 
 // assets 
-import logo from '../assets/logo1.png'
+import logo from '../assets/logo.png'
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);

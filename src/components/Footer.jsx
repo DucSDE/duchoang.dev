@@ -11,6 +11,9 @@ const Footer = () => {
             <span className="block text-xl text-gray-300 sm:text-center dark:text-gray-400 justify-center items-center text-center py-2" > 
                 Inspiration: <a href="https://www.youtube.com/watch?v=2kg0z1qNrkw/" className="hover:underline" >  Code Commerce </a>
             </span>
+            <span className="block text-xl text-gray-300 sm:text-center dark:text-gray-400 justify-center items-center text-center py-2" > 
+                Power by: <a href="https://reactjs.org/" className="hover:underline" >  React JS </a> & <a href="https://reactjs.org/" className="hover:underline" >  Tailwind CSS </a>
+            </span>
         </footer>
     )
 }
