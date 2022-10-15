@@ -1,4 +1,4 @@
-name: CI/CD
+name: Build and Deploy - CI/CD
 
 # Triggers
 on:
@@ -20,19 +20,27 @@ jobs:
     steps:
       - name: Checkout Lastest Code
         uses: actions/checkout@v2
-      - name: Install node 16
+
+      - name: Install NodeJS v16
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
+
       - name: Install NPM Dependencies
         run: npm i
+
       - name: Build Project
         run: npm run build
+      
+      - name: Run tests
+        run: npm run test
+
       - name: Upload artifact in order to deploy
         uses: actions/upload-artifact@v2
         with:
           name: production-files
           path: ./build
+
   # Deploy Job
   deploy:
     name: Deploy
@@ -45,10 +53,9 @@ jobs:
         with:
           name: production-files
           path: ./build
-      - name: Deploy to gh pages
+
+      - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_ACCESS_TOKEN }}
           publish_dir: ./build
-      - name: Publish to environment
-        run: npm run deploy
